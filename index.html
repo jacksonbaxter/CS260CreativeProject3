@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PlaylistMakr</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Red+Hat+Display:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <div id="search">
+            <div id="top-text">
+                <h1>Search a Song</h1>
+                <form>
+                    <input id="searchbar" type="text" v-model="prefix">
+                    <button id="searchbutton" v-on:click.prevent="getREST">Search</button>
+                </form>
+            </div>
+            <div v-if="loading">
+                <h1>Loading...</h1>
+            </div>
+            <div v-else>
+                <div v-for="item in response.results">
+                    <div v-if="item.kind =='song'" class="element">
+                        <img class="albumCovers" v-bind:src=item.artworkUrl100>
+                        <div class="trackText">
+                            <h2>{{ item.trackName }}</h2>
+                            <h2>{{ item.artistName }} ∙ {{ item.collectionName }}</h2>
+                        </div>
+                        <button v-on:click="addSong(item)" class="add">Add Song</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="split right">
+            <div class="centered">
+                <h1 v-if="listName === ''">Your Playlist</h1>
+                <h1 v-else>{{listName}}</h1>
+                <p>Enter a name for your playlist here!
+                    <form v-on:submit.prevent="addPlaylist">
+                        <input type="text" v-model="message">
+                        <button type="submit">Add</button>
+                    </form>
+                </p>
+                <p v-show="playlist.length === 0">Add Songs to your playlist!</p>
+                <ul>
+                    <li v-for="item in playlist" draggable="true" v-on:dragstart="dragItem(item)" v-on:dragover.prevent v-on:drop="dropItem(item)" v-on-start="millisToMinutesAndSeconds(item)">
+                        <label>
+              <button class="btn btn-primary btn-sm" 
+              @click.prevent="playSound(item)">
+                <span class="fa fa-play-circle-o"></span>
+                </button>
+                {{ item.trackName }} {{item.artistName}} {{item.collectionName}} {{time}}</label>
+                        <button v-on:click="deleteItem(item)" class="delete">X</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <p>GitRepo <a class="linkword" href="https://github.com/jacksonbaxter/CS260CreativeProject3" target="_blank">GitHub</a></p>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="script.js"></script>
+</body>
+
+</html>

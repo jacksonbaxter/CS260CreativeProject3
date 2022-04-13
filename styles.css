@@ -1,0 +1,150 @@
+body {
+    font-family: 'Red Hat Display', monospace;
+    font-size: 20px;
+    background-color: black;
+    font-family: "Courier"
+}
+
+#search {
+    top: 0;
+    left: 0;
+    width: 50%;
+}
+
+#top-text {
+    margin-bottom: 30px;
+}
+
+#searchbar {
+    font-size: 1.2em;
+}
+
+.element {
+    background: #f3f3f3;
+    width: 100%;
+    min-height: 30px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.add {
+    display: block;
+    font-family: 'Red Hat Display', monospace;
+    margin-left: auto;
+    font-size: 1.2em;
+}
+
+#searchbutton {
+    font-family: 'Red Hat Display', monospace;
+    font-size: 1.2em;
+}
+
+.trackText {
+    line-height: 1;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+}
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+}
+
+button {
+    background-color: white;
+    border: none;
+    color: black;
+    text-align: center;
+    font-family: Verdana;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: black;
+}
+
+p {
+    color: grey;
+    font-family: Verdana;
+}
+
+.right {
+    right: 0;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    background: grey;
+    width: 500px;
+    min-height: 30px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.delete {
+    display: none;
+    margin-left: auto;
+}
+
+li:hover .delete {
+    display: block;
+}
+
+label {
+    width: 400px;
+}
+
+.btn {
+    outline: none !important;
+}
+
+.btn.btn-primary {
+    background-color: white;
+    border-color: white;
+}
+
+:hover {
+    background-color: darken(purple, 10%);
+    border-color: darken(purple, 10%);
+}
+
+.btn-sm {
+    font-size: 22px;
+    padding: 2px 1px 2px 4px;
+    line-height: 12px;
+    margin-right: 10px;
+}
+
+.fa {
+    padding-right: 5px;
+}
+
+#footer {
+    bottom: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    color: black;
+    text-align: center;
+    padding: 60px;
+}
+
+.linkword {
+    color: grey;
+    text-decoration: underline;
+}
